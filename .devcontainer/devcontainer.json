@@ -1,10 +1,16 @@
 {
-  "name": "Helloworld Azure Function App",
-      "image": "mcr.microsoft.com/devcontainers/python:3.12",
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:1": {},
-    "ghcr.io/devcontainers/features/azure-cli:1": {},
-    "ghcr.io/devcontainers/features/azure-functions-core-tools:1": {}
+  "name": "Helloworld Azure Function",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "forwardPorts": [
+    7071
+  ],
+  "postCreateCommand": "poetry config virtualenvs.in-project true --local && poetry install --no-root",
+  "settings": {
+    "editor.formatOnSave": true,
+    "python.defaultInterpreterPath": "/usr/local/bin/python"
   },
   "customizations": {
     "vscode": {
@@ -13,16 +19,13 @@
         "ms-python.vscode-pylance",
         "ms-python.black-formatter",
         "ms-azuretools.vscode-azurecli",
-        "ms-azuretools.vscode-azurefunctions",
-        "prettier.prettier-vscode"
-      ],
-      "settings": {
-        "editor.formatOnSave": true,
-        "terminal.integrated.shell.linux": "/bin/bash",
-        "python.defaultInterpreterPath": "/usr/local/bin/python"
-      }
+        "ms-azuretools.vscode-azurefunctions"
+      ]
     }
   },
-  "postCreateCommand": "poetry config virtualenvs.in-project true --local && poetry install --no-root && poetry run pre-commit install",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {},
+    "ghcr.io/devcontainers/features/azure-cli:1": {}
+  },
   "remoteUser": "vscode"
 }
