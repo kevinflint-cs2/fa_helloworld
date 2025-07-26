@@ -1,18 +1,24 @@
-name: Helloworld Function App
-build:
-  dockerfile: Dockerfile
-  context: ..
-forwardPorts:
-  - 7071
-postCreateCommand: poetry install
-settings:
-  editor.formatOnSave: true
-  python.defaultInterpreterPath: /usr/local/bin/python
-customizations:
-  vscode:
-    extensions:
-      - ms-python.python
-      - ms-python.vscode-pylance
-      - ms-python.black-formatter
-      - ms-azuretools.vscode-azurecli
-      - ms-azuretools.vscode-azurefunctions
+{
+  "name": "Helloworld Function App",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "forwardPorts": [7071],
+  "postCreateCommand": "poetry install",
+  "settings": {
+    "editor.formatOnSave": true,
+    "python.defaultInterpreterPath": "/usr/local/bin/python"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "ms-azuretools.vscode-azurecli",
+        "ms-azuretools.vscode-azurefunctions"
+      ]
+    }
+  }
+}
