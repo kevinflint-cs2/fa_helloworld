@@ -1,0 +1,19 @@
+[project]
+name = "fa-helloworld"
+version = "0.1.0"
+description = "The most complex Python Azure Function helloworld in the world!"
+authors = [
+    {name = "kevinflint-cs2",email = "kevin.flint@cybersecuritysquared.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "azure-functions (>=1.23.0,<2.0.0)"
+]
+
+[tool.poetry]
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
