@@ -1,10 +1,11 @@
 {
-  "name": "Python Azure Function Hello World",
-  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "name": "Python 3.12 • Poetry (via Dockerfile) • Azure CLI + Functions",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
   "features": {
-    "ghcr.io/devcontainers/features/poetry:1": {
-      "version": "latest"
-    },
+    // Azure CLI for 'az' commands
     "ghcr.io/devcontainers/features/azure-cli:1": {
       "version": "latest"
     }
@@ -17,9 +18,7 @@
       ]
     }
   },
-  "initializeCommand": [
-    "curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /usr/share/keyrings/microsoft.gpg && echo \"deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/microsoft-debian-$(lsb_release -rs)-prod $(lsb_release -cs) main\" > /etc/apt/sources.list.d/azure-functions.list && apt-get update && apt-get install -y azure-functions-core-tools-4"
-  ],  
+  // Configure Poetry venv-in-project and install dependencies
   "postCreateCommand": "poetry config virtualenvs.in-project true && poetry install",
   "remoteUser": "vscode"
 }
