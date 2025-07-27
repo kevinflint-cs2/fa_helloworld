@@ -10,9 +10,7 @@ RUN apt-get update && \
 # Install Azure Functions Core Tools v4 via npm
 RUN npm install -g azure-functions-core-tools@4 --unsafe-perm true
 
-# Install Poetry
-RUN curl -sSL https://install.python-poetry.org | python3 - && \
-    ln -s /root/.local/bin/poetry /usr/local/bin/poetry
-
-# Ensure Poetry is on PATH
-ENV PATH="/root/.local/bin:${PATH}"
+# Install Poetry into /usr/local so it’s available to all users
+RUN curl -sSL https://install.python-poetry.org \
+     | python3 - -- --install-dir /usr/local --no-modify-path \
+    && ln -s /usr/local/bin/poetry /usr/local/bin/poetry

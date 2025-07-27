@@ -25,10 +25,7 @@
   },
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:1": {},
-    "ghcr.io/devcontainers/features/azure-cli:1": {},
-    "ghcr.io/devcontainers/features/poetry:1": {
-      "version": "latest"
-    }
+    "ghcr.io/devcontainers/features/azure-cli:1": {}
   },
   "remoteUser": "vscode"
 }
