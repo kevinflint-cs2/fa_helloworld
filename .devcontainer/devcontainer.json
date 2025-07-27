@@ -1,9 +1,7 @@
 {
-    "name": "helloworld Python",
-    "image": "mcr.microsoft.com/devcontainers/python:3.12",      // pick your supported Python
+    "name": "Python HelloWorld Azure Function",
+    "image": "mcr.microsoft.com/devcontainers/python:3.12",
     "features": {
-      // Docker-in-Docker if you need to run containers
-      "ghcr.io/devcontainers/features/docker-in-docker:1": {},
       "ghcr.io/devcontainers/features/azure-cli:1": {}
     },
     "customizations": {
@@ -11,15 +9,16 @@
         "extensions": [
           "ms-python.python",
           "ms-python.vscode-pylance",
-          "ms-toolsai.jupyter",
           "prettier.prettier-vscode",
-          "eamodio.gitlens"
+          "ms-python.black-formatter",
+          "ms-azuretools.vscode-azurecli",
+          "ms-azuretools.vscode-azurefunctions"
         ],
         "settings": {
           "terminal.integrated.shell.linux": "/bin/bash"
         }
       }
     },
-    "postCreateCommand": "poetry config virtualenvs.in-project true --local && poetry install && poetry run pre-commit install && npm install -g azure-functions-core-tools@4 --unsafe-perm true",
+    "postCreateCommand": "bash .devcontainer/post-create.sh",
     "remoteUser": "vscode"
 }
