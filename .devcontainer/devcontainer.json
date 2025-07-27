@@ -4,8 +4,10 @@
     "dockerfile": "Dockerfile",
     "context": ".."
   },
-  "forwardPorts": [7071],
-  "postCreateCommand": "poetry config virtualenvs.in-project true --local && poetry install --no-root",
+  "forwardPorts": [
+    7071
+  ],
+  "postCreateCommand": "poetry config virtualenvs.in-project true --local && poetry install",
   "settings": {
     "editor.formatOnSave": true,
     "python.defaultInterpreterPath": "/usr/local/bin/python"
@@ -23,7 +25,10 @@
   },
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:1": {},
-    "ghcr.io/devcontainers/features/azure-cli:1": {}
+    "ghcr.io/devcontainers/features/azure-cli:1": {},
+    "ghcr.io/devcontainers/features/poetry:1": {
+      "version": "latest"
+    }
   },
   "remoteUser": "vscode"
 }
