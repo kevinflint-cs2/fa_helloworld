@@ -5,7 +5,7 @@
     "ghcr.io/devcontainers/features/azure-cli:1": { "version": "latest" },
     "ghcr.io/jlaundry/devcontainer-features/azure-functions-core-tools:1": { "version": "4" }
   },
-  "postCreateCommand": "poetry config virtualenvs.in-project true && poetry install",
+  "postCreateCommand": "curl -sSL https://install.python-poetry.org | python3 - && ln -s /root/.local/bin/poetry /usr/local/bin/poetry && poetry config virtualenvs.in-project true && poetry install  && poetry run pre-commit install",
   "customizations": { "vscode": { "extensions": ["ms-python.python","ms-python.vscode-pylance"] } },
   "remoteUser": "vscode"
 }
