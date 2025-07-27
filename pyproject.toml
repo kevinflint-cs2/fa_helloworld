@@ -8,11 +8,18 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "azure-functions (>=1.23.0,<2.0.0)"
+    "azure-functions (>=1.23.0,<2.0.0)",
+    "dotenv (>=0.9.9,<0.10.0)"
 ]
 
 [tool.poetry]
 package-mode = false
+
+[tool.poetry.group.dev.dependencies]
+invoke = "^2.2.0"
+black = "^25.1.0"
+isort = "^6.0.1"
+flake8 = "^7.3.0"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
