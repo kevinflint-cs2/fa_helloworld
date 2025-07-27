@@ -112,7 +112,7 @@ def lint(c: Context) -> None:
     c.run(f"poetry run isort --check {paths_arg}", pty=True)
 
     # flake8 ignoring line-too-long errors
-    c.run(f"poetry run flake8 {paths_arg} --ignore=E501", pty=True)a
+    c.run(f"poetry run flake8 {paths_arg} --ignore=E501", pty=True)
 
 
 @task  # type: ignore[misc]
