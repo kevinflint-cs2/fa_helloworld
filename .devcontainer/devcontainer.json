@@ -1,24 +1,11 @@
 {
-  "name": "Python 3.12 • Poetry (via Dockerfile) • Azure CLI + Functions",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": "."
-  },
+  "name": "Python 3.12 + Azure CLI & Func Core Tools",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
   "features": {
-    // Azure CLI for 'az' commands
-    "ghcr.io/devcontainers/features/azure-cli:1": {
-      "version": "latest"
-    }
+    "ghcr.io/devcontainers/features/azure-cli:1": { "version": "latest" },
+    "ghcr.io/jlaundry/devcontainer-features/azure-functions-core-tools:1": { "version": "4" }
   },
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "ms-python.python",
-        "ms-python.vscode-pylance"
-      ]
-    }
-  },
-  // Configure Poetry venv-in-project and install dependencies
   "postCreateCommand": "poetry config virtualenvs.in-project true && poetry install",
+  "customizations": { "vscode": { "extensions": ["ms-python.python","ms-python.vscode-pylance"] } },
   "remoteUser": "vscode"
 }
