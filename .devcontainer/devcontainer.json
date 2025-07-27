@@ -4,9 +4,7 @@
     "dockerfile": "Dockerfile",
     "context": ".."
   },
-  "forwardPorts": [
-    7071
-  ],
+  "forwardPorts": [7071],
   "postCreateCommand": "poetry config virtualenvs.in-project true --local && poetry install --no-root",
   "settings": {
     "editor.formatOnSave": true,
